@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/COCuenca/Pictures/refs/heads/main/images.png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Shop</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #004c8c;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            left: 20px;
+            width: 50px;
+            height: auto;
+        }
+
+        .shop-container {
+            margin: 30px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            height: 200px; /* Fixed image height */
+            object-fit: cover; /* Ensures the image fits within the card without stretching */
+            border-radius: 5px;
+            width: 100%; /* Ensure image covers the entire width */
+        }
+
+        .card {
+            border: none;
+            display: flex;
+            flex-direction: column; /* Ensures content aligns vertically */
+            height: 100%; /* Makes sure the card height remains consistent */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Adds slight zoom effect on hover */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes space between elements */
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .product button {
+            background-color: #004c8c;
+            color: white;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .product button:hover:enabled {
+            background-color: #003a6e;
+        }
+
+        .cart-summary button {
+            background-color: #28a745;
+        }
+
+        .cart-summary button:hover {
+            background-color: #218838;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+
+        .fw-bold {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <img src="image/olympiclogo.png" alt="Olympic Logo" class="logo">
+        <h1>Welcome to Our Shop</h1>
+    </header>
+
+    <div class="container shop-container">
+        <div class="row g-3">
+            <!-- Product Cards -->
+            <script>
+                const products = [
+                    { id: 1, name: "Olympic T-shirt", desc: "Stylish and comfortable.", price: 25, stock: 10, img: "image/tshirt3.jpg" },
+                    { id: 2, name: "Olympic T-shirt", desc: "Perfect for sunny days.", price: 20, stock: 5, img: "image/tshirt4.jpg" },
+                    { id: 3, name: "Olympic T-shirt", desc: "Great for coffee lovers.", price: 15, stock: 8, img: "image/tshirt5.jpg" },
+                    { id: 4, name: "Olympic T-shirt", desc: "Stay hydrated.", price: 18, stock: 7, img: "image/tshirt6.jpg" },
+                    { id: 5, name: "Olympic Jacket", desc: "Warm and cozy.", price: 40, stock: 6, img: "image/jacket1.jpg" },
+                    { id: 6, name: "Olympic Jacket", desc: "Carry all your essentials.", price: 35, stock: 4, img: "image/jacket2.jfif" },
+                    { id: 7, name: "Olympic Jacket", desc: "Cute and compact.", price: 10, stock: 15, img: "image/jacket3.jfif" },
+                    { id: 8, name: "Olympic Jacket", desc: "Decorate your walls.", price: 12, stock: 12, img: "image/jacket4.jfif" },
+                    { id: 9, name: "Olympic Totebag", desc: "Stylish and sporty.", price: 50, stock: 3, img: "image/bag1.jfif" },
+                    { id: 10, name: "Olympic Totebag", desc: "Trendy and adjustable.", price: 22, stock: 9, img: "image/bag2.jfif" },
+                    { id: 11, name: "Olympic Totebag", desc: "Perfect for jotting down notes.", price: 8, stock: 20, img: "image/bag3.jpg" },
+                    { id: 12, name: "Olympic Totebag", desc: "Soft and breathable.", price: 5, stock: 25, img: "image/bag.jpg" },
+                    { id: 13, name: "Olympic Hat", desc: "Stylish and comfortable.", price: 25, stock: 10, img: "image/hat1.jfif" },
+                    { id: 14, name: "Olympic Hat", desc: "Perfect for sunny days.", price: 20, stock: 5, img: "image/hat2.jfif" },
+                    { id: 15, name: "Olympic Hat", desc: "Great for coffee lovers.", price: 15, stock: 8, img: "image/hat3.jpg" },
+                    { id: 16, name: "Olympic Hat", desc: "Stay hydrated.", price: 18, stock: 7, img: "image/hat4.jfif" },
+                    { id: 17, name: "Olympic Mug", desc: "Warm and cozy.", price: 40, stock: 6, img: "image/mug1.jfif" },
+                    { id: 18, name: "Olympic Mug", desc: "Carry all your essentials.", price: 35, stock: 4, img: "image/mug2.jpg" },
+                    { id: 19, name: "Olympic Mug", desc: "Cute and compact.", price: 10, stock: 15, img: "image/mug3.jfif" },
+                    { id: 20, name: "Olympic Mug", desc: "Decorate your walls.", price: 12, stock: 12, img: "image/mug4.jpg" },
+                    { id: 21, name: "Olympic Totebag", desc: "Stylish and sporty.", price: 50, stock: 3, img: "image/bag1.jfif" },
+                    { id: 22, name: "Olympic Totebag", desc: "Trendy and adjustable.", price: 22, stock: 9, img: "image/bag2.jfif" },
+                    { id: 23, name: "Olympic Totebag", desc: "Perfect for jotting down notes.", price: 8, stock: 20, img: "image/bag3.jpg" },
+                    { id: 24, name: "Olympic Totebag", desc: "Soft and breathable.", price: 5, stock: 25, img: "image/bag.jpg" }
+                ];
+
+                products.forEach(product => {
+                    document.write(`
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card">
+                                <img src="${product.img}" alt="${product.name}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">${product.desc}</p>
+                                    <p class="fw-bold">$${product.price}</p>
+                                    <label for="size${product.id}" class="form-label">Size:</label>
+                                    <select id="size${product.id}" class="form-select mb-2">
+                                        <option value="XS">Extra Small</option>
+                                        <option value="S">Small</option>
+                                        <option value="M">Medium</option>
+                                        <option value="L">Large</option>
+                                        <option value="XL">Extra Large</option>
+                                        <option value="2XL">2 Extra Large</option>
+                                    </select>
+                                    <label for="color${product.id}" class="form-label">Color:</label>
+                                    <select id="color${product.id}" class="form-select mb-3">
+                                        <option value="Red">Red</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Black">Black</option>
+                                        <option value="White">White</option>
+                                    </select>
+                                    <p>Stock: <span id="stock${product.id}">${product.stock}</span></p>
+                                    <button onclick="addToCart(this)" class="btn btn-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+
+        <div class="cart-summary text-center mt-4">
+            <h2>Cart Summary</h2>
+            <p id="cartCount">Items in Cart: 0</p>
+            <p id="totalPrice">Total: $0</p>
+            <a href="checkout.html" class="btn btn-success">Checkout</a>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(button) {
+            const productDiv = button.closest(".card");
+            const productName = productDiv.querySelector(".card-title").textContent;
+            const productPrice = parseFloat(productDiv.querySelector(".fw-bold").textContent.slice(1));
+            cart.push({ name: productName, price: productPrice });
+
+            document.getElementById('cartCount').textContent = `Items in Cart: ${cart.length}`;
+            document.getElementById('totalPrice').textContent = `Total: $${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

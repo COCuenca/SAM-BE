@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/COCuenca/Pictures/refs/heads/main/images.png" type="image/x-icon" />
+    <title>Sign-Up Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet">
+    <style>
+        /* Ensure full height for the page */
+        .h-custom {
+            height: calc(100% - 56px);
+        }
+
+        /* Ensure header and form sections adjust based on screen size */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .header-logo {
+                margin-bottom: 1rem;
+            }
+
+            .header-logo img {
+                width: 50px;
+                height: auto;
+            }
+
+            .header-title {
+                font-size: 20px;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Header layout */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-logo {
+            margin-right: 20px;
+        }
+
+        .header-logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        /* Title styling and centering */
+        .header-title {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Ensure proper padding for containers and columns */
+        .container-fluid {
+            padding: 0;
+        }
+
+        .col-12, .col-md-9, .col-lg-6, .col-xl-5 {
+            padding: 0;
+        }
+
+        .col-md-9 img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-primary py-3">
+        <div class="container d-flex justify-content-between align-items-center header-container">
+            <!-- Logo on the left -->
+            <div class="header-logo">
+                <img src="image/olympiclogo.png" alt="Olympic Logo" class="logo">
+            </div>
+            <!-- Centered Title -->
+            <div class="header-title">
+                <h1>My Website</h1>
+            </div>
+        </div>
+    </header>
+        <div class="container h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-6 col-xl-5 h-100">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid h-100 w-100" alt="Sample image" style="object-fit: cover;">
+                </div>
+    
+                <div class="col-12 col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <!-- Form starts -->
+                    <form action="index.html" method="get">
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-md-end">
+                            <p class="lead fw-normal mb-3 mb-md-0 me-md-3 text-center">Sign up with</p>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary btn-floating mx-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-floating mx-1">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-floating mx-1">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                            <p class="text-center fw-bold mx-3 mb-0">Email</p>
+                        </div>
+
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form3Example1" class="form-control form-control-lg"
+                                placeholder="Enter your full name" required />
+                            <label class="form-label" for="form3Example1">Full Name</label>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form3Example2" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" required />
+                            <label class="form-label" for="form3Example2">Email address</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input type="password" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Create a strong password" required />
+                            <label class="form-label" for="form3Example3">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required />
+                                <label class="form-check-label" for="form2Example3">
+                                    I agree to the <a href="#!" class="link-danger">Terms and Conditions</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="text-center text-lg-end mt-4 pt-2">
+                            <!-- Sign-Up Button -->
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign Up</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="#!"
+                                    class="link-danger">Login</a></p>
+                        </div>
+                    </form>
+                    <!-- Form ends -->
+                </div>
+            </div>
+        <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+            <div class="text-white mb-3 mb-md-0">
+                Copyright © 2020. All rights reserved.
+            </div>
+
+            <div>
+                <a href="#!" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#!" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#!" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="#!" class="text-white">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+</body>
+
+</html>

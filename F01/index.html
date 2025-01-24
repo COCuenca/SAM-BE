@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/COCuenca/Pictures/refs/heads/main/images.png" type="image/x-icon" />
+    <title>Olympic Merchandise Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Body and General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #004c8c;
+            color: white;
+            padding: 20px;
+        }
+
+        header .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #ffca28;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            background-color: #004c8c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .hero .btn:hover {
+            background-color: #003a6e;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            padding: 40px 20px;
+        }
+
+        .featured-products h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product h4 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .product p {
+            font-size: 1rem;
+        }
+
+        .product-price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .product-price-container .btn {
+            background-color: #ffca28;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .product-price-container .btn:hover {
+            background-color: #ff9800;
+        }
+
+        .product-price-container strong {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="d-flex justify-content-between align-items-center">
+        <!-- Olympic Logo on the left side -->
+        <div class="logo">
+            <img src="image/olympiclogo.png" alt="Olympic Logo">
+        </div>
+        <nav>
+            <ul class="d-flex flex-wrap mb-0">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to the Official Mr. COC Shop</h2>
+            <p>Shop the latest and exclusive COC apparel, accessories, and memorabilia.</p>
+            <a href="shop.html" class="btn">Start Shopping</a>
+        </section>
+
+        <section class="featured-products container">
+            <h3 class="text-center">Featured Products</h3>
+            <div id="product-list" class="row"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mr. COC Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Populate the featured products
+        const productList = document.getElementById("product-list");
+        const sampleProducts = [
+            { name: "Olympic T-shirt", description: "", price: "300.php", imgSrc: "image/tshirt1.jpg" },
+            { name: "Olympic Jacket", description: "", price: "450.php", imgSrc: "image/tshirt2.jpg" },
+            { name: "Olympic Mug", description: "", price: "100.php", imgSrc: "image/mug.jpg" },
+            { name: "Olympic Hat", description: "", price: "150.php", imgSrc: "image/hat.jpg" },
+            { name: "Olympic Tumbler", description: "", price: "500.php", imgSrc: "image/tumbler.jpg" },
+            { name: "Olympic Tote bag", description: "", price: "350.php", imgSrc: "image/bag.jpg" }
+        ];
+
+        sampleProducts.forEach((product) => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("col-lg-4", "col-md-6", "mb-4");
+            productDiv.innerHTML = `
+                <div class="product">
+                    <img src="${product.imgSrc}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p>${product.description}</p>
+                    <div class="product-price-container">
+                        <strong>${product.price}</strong>
+                        <a href="shop.html" class="btn">Buy Now</a>
+                    </div>
+                </div>
+            `;
+            productList.appendChild(productDiv);
+        });
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
